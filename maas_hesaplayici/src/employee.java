@@ -11,6 +11,7 @@ public class employee {
         this.workHour=workHour;
         this.hireYear=hireYear;
         bonus();
+        raiseSalary();
         tax();
 
     }
@@ -66,16 +67,19 @@ public class employee {
         workTime=workTime-hireYear;
         if(workTime>9 && workTime<20){
             System.out.println("Maaş artışı: "+(this.salary/100*10));
+            this.salary+=this.salary/100*10;
         }
         else if(workTime>19){
             System.out.println("Maaş artışı: "+(this.salary/100*15));
+            this.salary+=this.salary/100*15;
         }
         else{
             System.out.println("Maaş artışı: "+(this.salary/100*5));
+            this.salary+=this.salary/100*5;
         }
     }
 
     public String toString(){
-        return String.format("İsim: %s\nMaaş: %2.d\nÇalışma Saati: %d\nBaşlangıç Yılı: %d\n",this.name,this.salary,this.workHour,this.hireYear);
+        return String.format("İsim: %s\nMaaş: %.2f\nÇalışma Saati: %d\nBaşlangıç Yılı: %d\n",this.name,this.salary,this.workHour,this.hireYear);
     }
 }
